@@ -36,7 +36,8 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 96px;
+    scroll-padding-top: 90px;
+    overflow-x: clip;
 }
 
 body {
@@ -46,6 +47,7 @@ body {
     color: var(--ink);
     background: var(--bg);
     -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
 }
 
 img, svg {
@@ -129,9 +131,6 @@ button { font-family: inherit; cursor: pointer; }
     text-align: center;
     font-size: 14px;
     padding: 10px 16px;
-    position: sticky;
-    top: 0;
-    z-index: 60;
 }
 
 .announce a {
@@ -146,11 +145,9 @@ button { font-family: inherit; cursor: pointer; }
 /* ---------- Nav ---------- */
 .nav-wrap {
     position: sticky;
-    top: 38px;
+    top: 0;
     z-index: 50;
-    background: rgba(250, 247, 242, 0.85);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: var(--bg);
     border-bottom: 1px solid var(--line);
 }
 
@@ -905,6 +902,19 @@ button { font-family: inherit; cursor: pointer; }
 
     .footer-inner { flex-direction: column; text-align: center; }
     .footer-links { flex-wrap: wrap; justify-content: center; }
+}
+
+/* Compact nav so brand + CTA fit on small phones without overflow */
+@media (max-width: 560px) {
+    .nav { gap: 10px; }
+    .brand { font-size: 17px; }
+    .nav .btn-sm { padding: 10px 16px; font-size: 13px; }
+}
+
+@media (max-width: 360px) {
+    .nav { gap: 8px; }
+    .brand { font-size: 15px; }
+    .nav .btn-sm { padding: 9px 12px; font-size: 12.5px; }
 }
 
 @media (max-width: 420px) {
